@@ -15,6 +15,14 @@ When("I add A and B", () => {
   result = calculate(A, B, "+");
 });
 
+When("I subtract B from A", () => {
+  result = calculate(A, B, "-");
+});
+
+When("I multiply A and B", () => {
+  result = calculate(A, B, "*");
+});
+
 Then("the result should be {float}", (number) => {
   const roundedResult = Math.round(result * 100) / 100;
 
