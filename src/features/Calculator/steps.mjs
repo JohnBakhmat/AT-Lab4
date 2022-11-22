@@ -23,8 +23,16 @@ When("I multiply A and B", () => {
   result = calculate(A, B, "*");
 });
 
+When("I divide A by B", () => {
+  result = calculate(A, B, "/");
+});
+
 Then("the result should be {float}", (number) => {
   const roundedResult = Math.round(result * 100) / 100;
+  const roundedExpected = Math.round(number * 100) / 100;
+  assert.equal(roundedResult, roundedExpected);
+});
 
-  assert.equal(roundedResult, number);
+Then("the result should be Infinity", () => {
+  assert.equal(result, "Infinity");
 });
